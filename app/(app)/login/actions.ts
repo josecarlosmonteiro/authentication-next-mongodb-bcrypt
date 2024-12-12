@@ -22,7 +22,7 @@ export async function login(_prevState: unknown, formData: FormData) {
     if (!user)
       throw new Error('Usuário ou senha incorretos');
 
-    const correctPass = await bcrypt.compare(payload.password, user.password);
+    const correctPass = await bcrypt.compare(user.password, payload.password);
     console.log("🚀 ~ login ~ correctPass:", correctPass);
 
     if (!!correctPass)
